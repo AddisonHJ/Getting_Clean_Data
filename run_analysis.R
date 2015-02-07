@@ -50,6 +50,7 @@ rm(RelVarsAll)
 
 # Task 3: Replace activity numbers with descriptive names
 
+activity_labels <- transform(activity_labels, V2 = sub("LAYING", "LYING", V2))
 library(dplyr)
 for (i in 1:6){
      DataFrame <- transform(DataFrame, V1.1 = sub(i, activity_labels[i,2], V1.1))
@@ -59,15 +60,17 @@ rm(i, activity_labels)
 # Task 4: Label the dataset with descriptive variable names
 
 FeatureNames <- as.character(features[RelVars,2])
-FeatureNames <- sub("\\(\\)-?", "", FeatureNames)
-FeatureNames <- sub("-mean", "Avg", FeatureNames)
-FeatureNames <- sub("-std", "StDev", FeatureNames)
+FeatureNames <- sub("\\(\\)", "", FeatureNames)
+FeatureNames <- gsub("-", "", FeatureNames)
+FeatureNames <- sub("mean", "Mean", FeatureNames)
+FeatureNames <- sub("std", "Std", FeatureNames)
+FeatureNames <- sub("BodyBody", "Body", FeatureNames)
 
 AllVarNames <- c("subject", "activity", FeatureNames)
 names(DataFrame) <- AllVarNames
 rm(objects = features, RelVars, FeatureNames, AllVarNames)
 
-# Task 5: Create new dataset with variable averages for each activity & subject
+# Task 5: Create new dataset with variable averages for each subject & activity
 
 SubjectActivity <- group_by(DataFrame, subject, activity)
 Averages <- summarise_each(SubjectActivity, funs(mean))

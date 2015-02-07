@@ -1,8 +1,15 @@
 # Getting\_Clean_Data
-The **run_analysis.R** file is part of my course project for the Getting and Cleaning Data course, which is part of the Data Science specialisation, on Coursera. This README explains my approach to the project, describes the code, in particular the choices I made in coding, and advises reviewers on reading the file into R. This is the first README doc I've ever written.
+This repository includes the following files:
 
-##My Approach 
+* README.md : describes the R script to produce the 'Averages' dataset and provides advice on reading the file into R
+* codebook.md : describes the 'Averages' dataset and its source, the HARUS dataset
+* run_analysis.R : programmatically extracts desired data from the HARUS dataset and creates the 'Averages' dataset
 
+## run_analysis.R
+
+The **run_analysis.R** file is part of my course project for the Getting and Cleaning Data course, which is part of the Data Science specialisation, on Coursera. 
+
+**Approach**
 My approach reflects the fact that I began programming with this Data Science specialisation, with the Data Scientist's Toolbox and R Programming courses. I adopt the methods taught so far, eschewing any exotic variations that might be suggested by experienced programmers on Source Forge and other forums. At my current level, I prefer a line of code for each step rather than many shortcuts so that when I view the script in the future, the code still makes sense to me. However, I wish to avoid excessive repetition. There are two parts of my **run_analysis.R** script that I believe could be shortened, but I couldn't figure out how to do it within a reasonable amount of time. I point out these parts below and obviously welcome any advice.
 
 ##The Coding Steps
@@ -33,14 +40,14 @@ My approach reflects the fact that I began programming with this Data Science sp
 **Task 2: Extract variables that measure mean and standard deviation**
 
  * create a logical vector, **RelVars**, based on the evaluation of column 2 of the **features** dataframe. `grepl` function returns TRUE for every element that contains "mean" or "std".
- * Note: I include in the extraction the 6 "angle" variables (nos. 555-561) because, having no substantive comprehension of the research domain for which these data were generated, I cannot judge the meaning of the variables, even after reading the researchers README.txt and features.txt files.
+ * Note: I did not extract the 6 "angle" variables (nos. 555-561) because these are not measures of means or standard deviations, but rather of the angle between (presumably) 2 vectors of raw measurements. I have zero substantive understanding of the domain for which these data were generated, but it seems to me that the word 'mean' in these feature names comes from the name of vectors in the angle measurement.
  * concatenate 2 additional 'TRUE' values at the start of **RelVars** to account for the 2 additional columns in **DataFrame**
  * use the resulting vector **RelVarsAll** to extract the relevant variables. (Now R gives unique labels to the first 3 columns.)
 
 **Task 3: Replace activity numbers with descriptive names**
 
+* Note: the researchers use the activity label 'LAYING', which is ungrammatical. 'LAYING' is a transitive verb. The correct verb is 'LYING'. I change it.
 * use an interative control structure to loop through all 6 values of variable "V1.1" in **DataFrame** and substitute the activity numbers with the descriptive labels provided in column 2 of the **activity_labels** dataframe. Use transform so that the object returned is the entire **DataFrame**, not a vector.
-* Note: the researchers use the activity label 'LAYING', which is ungrammatical. 'LAYING' is a transitive verb. The correct verb is 'LYING'. I didn't change it, because the course is about coding and data science, not the grammatical use of English. But this elementary error by educated scientists does bother me.
 
 **Task 4: Label the dataset with descriptive variable names**
 
