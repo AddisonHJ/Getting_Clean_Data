@@ -18,6 +18,7 @@ My approach reflects the fact that I began programming with this Data Science sp
 
  * whenever an object is no longer needed, it is removed from the environment to keep the workspace tidy
  * this script requires installation of the **dplyr** package
+ * I did not use the **data.table** package for data frame operations, despite its being faster, because I wanted to gain familiarity with data frame operations in the base R package, since the dataset for my own PhD project is much smaller than the one used here
 
 **Set the working directory and create folder for the Samsung data**
 

@@ -1,6 +1,6 @@
 # Set the working directory and create folder for the Samsung data
 
-setwd("C:/Users/Helen/Desktop/GCD_Project")
+setwd("C:/Users/Helen/Desktop/Getting_Clean_Data")
 if (!file.exists("data")) {
      dir.create("data")
 }
