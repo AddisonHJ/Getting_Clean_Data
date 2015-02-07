@@ -76,5 +76,3 @@ SubjectActivity <- group_by(DataFrame, subject, activity)
 Averages <- summarise_each(SubjectActivity, funs(mean))
 rm(SubjectActivity)
 View(Averages)
-
-

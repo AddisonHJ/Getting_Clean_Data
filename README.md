@@ -1,7 +1,7 @@
 # Getting\_Clean_Data
 This repository includes the following files:
 
-* README.md : describes the R script to produce the 'Averages' dataset and provides advice on reading the file into R
+* README.md : describes the R script to produce the 'Averages' dataset and provides advice on reading the Averages.txt file (provided on Coursera site) into R
 * codebook.md : describes the 'Averages' dataset and its source, the HARUS dataset
 * run_analysis.R : programmatically extracts desired data from the HARUS dataset and creates the 'Averages' dataset
 
@@ -70,8 +70,9 @@ My approach reflects the fact that I began programming with this Data Science sp
 
 \*Wickham, Hadley (2014), "Tidy Data", *Journal of Statistical Software* (59:10).
 
-##Note on Reading the File into R
+##Note on Reading the Averages.txt File into R
 
-The **Averages** dataframe was written to a file using `write.table` with `row.name = FALSE`. To read it into R, use the following code:
+This file is available to reviewers on the Coursera Getting and Cleaning Data course website. 
+The **Averages** dataframe was written to a .txt file using `write.table` with `row.name = FALSE`. To read it into R, use the following code:
 
 `Averages <- read.table("Averages.txt", header = TRUE)`

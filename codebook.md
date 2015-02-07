@@ -14,9 +14,9 @@ The Averages dataset was created by 'Zerbera2', a participant in the Getting and
 ##The Averages Dataset
 
 
-###Units of Observation
+###Unit of Observation
 
-The units of observation of the Averages dataset are subject-activity combinations.
+The unit of observation in the Averages dataset is subject-activity.
 
 ###Variables
 
