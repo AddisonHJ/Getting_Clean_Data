@@ -1,9 +1,11 @@
-# Set the working directory and create folder for the Samsung data
+# Set the working directory and create folder for the project & the Samsung data
 
-setwd("C:/Users/Helen/Desktop/Getting_Clean_Data")
-if (!file.exists("data")) {
-     dir.create("data")
+setwd("../Desktop")
+if (!file.exists("GCD_Project")) {
+     dir.create("GCD_Project")
 }
+dir.create("GCD_Project/data")
+setwd("./GCD_Project")
 
 # Download and unzip the data files
 
@@ -76,3 +78,6 @@ SubjectActivity <- group_by(DataFrame, subject, activity)
 Averages <- summarise_each(SubjectActivity, funs(mean))
 rm(SubjectActivity)
 View(Averages)
+
+# Task 6: Write the dataframe into a text file
+write.table(Averages, file = "Averages.txt", row.name=FALSE, col.names=TRUE)

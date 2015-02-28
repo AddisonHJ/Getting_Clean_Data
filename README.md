@@ -20,9 +20,10 @@ My approach reflects the fact that I began programming with this Data Science sp
  * this script requires installation of the **dplyr** package
  * I did not use the **data.table** package for data frame operations, despite its being faster, because I wanted to gain familiarity with data frame operations in the base R package, since the dataset for my own PhD project is much smaller than the one used here
 
-**Set the working directory and create folder for the Samsung data**
+**Set the working directory and create folder for the project & Samsung data**
 
  * create on desktop
+ * ***Change:*** I have generalised local the folder position (in an earlier version, it was tailored to my computer)
 
 **Download and unzip the data files**
 
@@ -69,7 +70,11 @@ My approach reflects the fact that I began programming with this Data Science sp
 * observational units of the same type (subject-activity measured at an aggregated level, namely the means of lower-level measures of individual actions) are stored in one table
 * the table contains only this type of observational unit and no units at the lower level of aggregation.
 
+* ***Change:*** Added code to write dataframe to a text file (before, I wrote a second script to do this, as I didn't perceive that it was a formal part of the 5 tasks)
+
 \*Wickham, Hadley (2014), "Tidy Data", *Journal of Statistical Software* (59:10).
+
+
 
 ##Note on Reading the Averages.txt File into R
 
